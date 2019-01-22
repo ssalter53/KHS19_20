@@ -7,7 +7,7 @@
 ####
 
 team_name = 'Rock and Leah' # Only 10 chars displayed.
-strategy_name = 'Betray, Betray, Collude'
+strategy_name = 'Loyal Betray, Betray, Collude'
 strategy_description = 'If the opponent copies the strategy, program colludes, otherwise it betrays'
     
 def move(my_history, their_history, my_score, their_score):
