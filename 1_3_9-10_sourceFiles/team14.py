@@ -6,27 +6,92 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
+x = 6
+y = 0
+z = 0
+team_name = 'E3'
+strategy_name = 'Collude but retaliate'
+strategy_description = '''\
+Collude first round. Collude, except in a round after getting 
+a severe punishment.'''
+Choice =0
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
+    '''Make my move based on the history with this player.
     
-    Make my move.
-    Returns 'c' or 'b'. 
+    history: a string with one letter (c or b) per round that has been played with this opponent.
+    their_history: a string of the same length as history, possibly empty. 
+    The first round between these two players is my_history[0] and their_history[0]
+    The most recent round is my_history[-1] and their_history[-1]
+    
+    Returns 'c' or 'b' for collude or betray.
     '''
-
-    # my_history: a string with one letter (c or b) per round that has been played with this opponent.
-    # their_history: a string of the same length as history, possibly empty. 
-    # The first round between these two players is my_history[0] and their_history[0].
-    # The most recent round is my_history[-1] and their_history[-1].
+    if len(my_history) < 51:
+        if len(my_history)==4: # It's the first round; collude.
+            return 'b'
+        elif len(my_history) < 10:
+            return 'c'
+        elif their_history[5] == 'b':
+            if their_history[their_history < 10 and not 5] == "c":
+                if len(my_history) == 49:
+                    return 'b'
+                else: return 'c'
+                
+            elif their_history[their_history < 6] == "c" and their_history[5 < their_history and their_history <11] == "b":
+                return "b"
+            
+            else:
+                for l in Bigg:
+                    if their_history[x] == "b":
+                        y += 1
+                        x += 1
+                    else:
+                        z += 0
+                    x = 6
+                if y < 3:
+                    if len(my_history) == 49:
+                        return "b"
+                    else:
+                        return "c"
+                else:
+                    return "b"
+        else:
+            return "c"
     
-    # Analyze my_history and their_history and/or my_score and their_score.
-    # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+    elif len(my_history) < 101:
+        if len(my_history)==54: # It's the first round; collude.
+            return 'b'
+        elif len(my_history) < 60:
+            return 'c'
+        elif their_history[55] == 'b':
+            if their_history[their_history < 60 and not 55] == "c":
+                if len(my_history) == 99:
+                    return 'b'
+                else: return 'c'
+                
+            elif their_history[51 < their_history and their_history <56] == "c" and their_history[55 < their_history and their_history <61] == "b":
+                return "b"
+            
+            else:
+                for l in Bigg:
+                    if their_history[x] == "b":
+                        y += 1
+                        x += 1
+                    else:
+                        z += 0
+                    x = 6
+                if y < 3:
+                    if len(my_history) == 99:
+                        return "b"
+                    else:
+                        return "c"
+                else:
+                    return "b"
+    else:
+        return "c"
+    if their_history[98] == 'c':
+        return 'c'
+    else:
+        return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
