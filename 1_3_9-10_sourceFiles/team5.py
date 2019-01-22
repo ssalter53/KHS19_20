@@ -6,8 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
+team_name = 'Shawna&Bronson' # Only 10 chars displayed.
+strategy_name = 'Retaliate?'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
@@ -25,8 +25,18 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+    if len(my_history) == 0:   #return 'b' first round
+        return 'c'
+    elif len(my_history) == 1: #return 'c' second round
+        return 'b'
+    elif(their_history) == 2: #return 'b' third round
+        return 'c'
+    elif(their_history[-1]) == 'c': #If opponents previous move was 'c,' then return 'b'
+        return 'b'
+    elif(their_history[-1]) == 'b': #If opponents previous move was 'b,' then return 'c'
+        return 'b'
+    else:                       #If all else fails (or returns false) then return 'c'
+        return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
