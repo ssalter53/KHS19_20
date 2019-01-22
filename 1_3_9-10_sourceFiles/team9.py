@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'MckeandJar' # Only 10 chars displayed.
+team_name = 'MckeandJar' # Changed the name
 strategy_name = 'Collude but retaliate twice'
 strategy_description = 'Collude until betrayed, then betray twice. '
     
@@ -25,6 +25,7 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
+    # The first round, collude
     if len(my_history) == 0:
         return 'c'
     elif my_history[-1]== 'c' and their_history[-1]== 'b':
