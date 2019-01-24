@@ -57,7 +57,7 @@ def move(my_history, their_history, my_score, their_score):
         else:
             return "c"
     
-    elif len(my_history) < 101:
+    elif len(my_history) < 301:
         if len(my_history)==54: # It's the first round; collude.
             return 'b'
         elif len(my_history) < 60:
