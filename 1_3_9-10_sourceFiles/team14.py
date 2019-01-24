@@ -6,9 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-x = 6
-y = 0
-z = 0
+
 team_name = 'E3'
 strategy_name = 'Collude but retaliate'
 strategy_description = '''\
@@ -16,6 +14,9 @@ Collude first round. Collude, except in a round after getting
 a severe punishment.'''
 Choice =0
 def move(my_history, their_history, my_score, their_score):
+    x = 6
+    y = 0
+    z = 0
     '''Make my move based on the history with this player.
     
     history: a string with one letter (c or b) per round that has been played with this opponent.
@@ -40,7 +41,7 @@ def move(my_history, their_history, my_score, their_score):
                 return "b"
             
             else:
-                for l in Bigg:
+                for l in str("Bigg"):
                     if their_history[x] == "b":
                         y += 1
                         x += 1
@@ -72,7 +73,7 @@ def move(my_history, their_history, my_score, their_score):
                 return "b"
             
             else:
-                for l in Bigg:
+                for l in str("Bigg"):
                     if their_history[x] == "b":
                         y += 1
                         x += 1
@@ -88,7 +89,7 @@ def move(my_history, their_history, my_score, their_score):
                     return "b"
     else:
         return "c"
-    if their_history[98] == 'c':
+    if len(my_history) == 99 and their_history[98] == 'c':
         return 'c'
     else:
         return 'b'
